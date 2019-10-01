@@ -41,7 +41,7 @@ function pack(size, items, gap, rtl, prevSpaces) {
 
   const strategy = getStrategy(rtl);
 
-  return items.map(item => {
+  const positionedItems = items.map(item => {
     const positioned = {
       width: item.width || 0,
       height: item.height || 0
@@ -69,6 +69,11 @@ function pack(size, items, gap, rtl, prevSpaces) {
 
     return positioned;
   });
+
+  return {
+    items: positionedItems,
+    spaces
+  };
 }
 
 export function getWidth(items) {
