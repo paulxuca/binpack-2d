@@ -1,0 +1,6 @@
+.eslintrc.json
+src/
+test/
+node_modules/
+rollup.config.js
+yarn.lock
