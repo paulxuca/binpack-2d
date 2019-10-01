@@ -25,9 +25,13 @@ function getStrategy(rtl) {
       };
 }
 
-function pack(size, items, gap, rtl, prevSpaces) {
+function pack(size, items, gap, rtl, prevSpaces, minHeight) {
   if (!gap) {
     gap = 0;
+  }
+
+  if (!minHeight) {
+    minHeight = 0;
   }
 
   const spaces = prevSpaces || [
@@ -48,7 +52,7 @@ function pack(size, items, gap, rtl, prevSpaces) {
     };
 
     const space = spaces.find(space => {
-      return fits(space, positioned);
+      return fits(space, positioned, minHeight);
     });
 
     if (space) {
