@@ -25,6 +25,7 @@ function getStrategy(rtl) {
       };
 }
 
+// Gap only applies to x.
 function pack(size, items, gap, rtl, prevSpaces, minHeight) {
   if (!gap) {
     gap = 0;

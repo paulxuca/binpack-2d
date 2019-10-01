@@ -50,7 +50,7 @@ export function subtract(a, b, gap) {
   const bRight = b.x + b.width;
   const bBottom = b.y + b.height;
 
-  if (gap === undefined) {
+  if (!gap) {
     gap = 0;
   }
 
@@ -60,7 +60,7 @@ export function subtract(a, b, gap) {
       x: a.x,
       y: a.y,
       width: a.width,
-      height: b.y - a.y - gap
+      height: b.y - a.y
     });
   }
 
@@ -78,9 +78,9 @@ export function subtract(a, b, gap) {
   if (aBottom > bBottom) {
     free.push({
       x: a.x,
-      y: bBottom + gap,
+      y: bBottom,
       width: a.width,
-      height: aBottom - bBottom - gap
+      height: aBottom - bBottom
     });
   }
 
@@ -93,6 +93,7 @@ export function subtract(a, b, gap) {
       height: a.height
     });
   }
+
   return free;
 }
 
